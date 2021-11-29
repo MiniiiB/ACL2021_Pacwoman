@@ -1,0 +1,69 @@
+Idée globale du Sprint 1:
+Une personnage se déplace dans une salle (labyrinthe) et doit récupérer un objet pour pouvoir arriver au point final et gagner en un temps imparti 
+
+Backlog pour le S1: 
+
+Personnage qui se déplace : 
+Tâche 1: (haut/bas/gauche/droite)  
+Tâche 2: Interaction avec le labyrinthe (pas possible de traverser les murs)
+
+Faire une salle à partir d'un fichier txt: 
+Tâche 1: Murs tout autour  
+Tâche 2: Obstacles dans la salle (labyrinthe)
+
+Cases spéciales:
+Tâche 1: Un point "arrivée" pour valider la fin de la partie
+Tâche 2: Une case "clé" permettant d'activer la case "arrivée". On ne peut pas finir le jeu sans récupérer la clé
+
+Timer:
+Tâche 1: Mise en place d'un timer
+Tâche 2: Limite de temps pour finir la partie
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Remarque du sprint précédent: 
+* mieux répartir le travail
+* ajouter beaucoup de commentaires pour aider les autres à comprendre ce qu'on fait
+* problèmes d'utilisation de github
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Backlog pour le S2:
+
+Points de vie:
+Tâche 1: Le héros possède un nombre de points de vie défini
+Tâche 2: Si plus de points de vie, le héros meurt et le jeu est terminé
+Tâche 3: ajouter des points de vie sur le plateau: si le héros va sur la case où se trouve un point de vie il en récupère un (le point de vie disparaît du plateau) sauf si il a le nombre de points de vie maximal
+
+Méchants qui se déplacent aléatoirement sur le labyrinthe:
+Tâche 1: déplacement aléatoire
+Tâche 2: Interaction avec le labyrinthe (pas possible de traverser les murs)
+Tâche 3: Si le méchant et le héros se retrouvent sur la même case, on retire un point de vie au héros
+
+Partie graphique:
+Tâche 1: définir un graphique plus élaboré pour le héro et un pour les méchants
+Tâche 2: afficher le nombre de points de vie
+Tâche 3: afficher le timer
+Tâche 4: afficher un message quand le partie est terminé, gagnée ou perdue
+
+Case ouverture :
+Tâche 1: faire une case spéciale qui retire une certaine case mur pour que le héro puisse passer
+
+Modifications du sprint 1:
+Tâche 1: retirer la clé du plateau quand le héros la récupère
+
+
+
+Répartition :
+Anaelle : modifs case point de vie & case clé+ case ouverture + Vérification si tout marche + modifications
+Thomas : graphisme héros/méchants & afficher timer, points de vie, message fin jeu
+Chloé : aquisition/pertes points de vie + Refaire diagramme de séquence 
+Eloise : déplacements méchants et collison avec héros (refaire une classe personnage)
+
+Deadlines :
+* 26/11 : ok sur git
+* 29/11 : verifier si ça se compile sur l'ordi du prof
+* 2/12 : avoir tout coder
+* 6/12 : tout fonctionne
+* 10/12 ; modifier diagrammes
+* 13/12 : rendre au prof : tout ok
