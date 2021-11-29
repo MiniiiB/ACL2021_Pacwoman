@@ -3,7 +3,8 @@
 
 Execution du programme:
 
-mvn package
-
-Java -cp target/jeu-1.0-SNAPSHOT.jar start.Main
+- Cloner le répertoire Github sur votre ordinateur 
+- Se placer dans le répertoire cloné (cd ...)
+- mvn package
+- mvn exec:java
 
