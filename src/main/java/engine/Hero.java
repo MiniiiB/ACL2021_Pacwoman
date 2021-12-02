@@ -13,6 +13,7 @@ import java.awt.Graphics2D;
 
 import model.PacmanGame;
 import model.PacmanPainter;
+import engine.Case;
 
 public class Hero {
 	private static int abscisse=1;
@@ -62,7 +63,7 @@ public class Hero {
 
 //ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==5 && getNombreVie()<3) {
+		if (verifVie && getNombreVie()<3) {
 			setNombreVie(getNombreVie() + 1);
 			System.out.println("Vous avez gagné une vie");
 		}

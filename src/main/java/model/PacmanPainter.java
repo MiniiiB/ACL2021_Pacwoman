@@ -44,6 +44,7 @@ public class PacmanPainter implements GamePainter {
 		ground = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/ground.png").getImage();
 		start = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagGreen.png").getImage();
 		finish = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagRed.png").getImage();
+		life = new ImageIcon().getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		if (PacmanGame.finJeu == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
@@ -95,6 +96,11 @@ public class PacmanPainter implements GamePainter {
 								//crayon.fillPolygon(x,y,n);
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(key, xImage, yImage, null);
+							}
+							
+							if (res==5) { // Case vie
+								crayon.drawImage(ground, xImage, yImage, null);
+								crayon.drawImage(life, xImage, yImage, null);
 							}
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));

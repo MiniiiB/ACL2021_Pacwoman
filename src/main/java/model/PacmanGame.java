@@ -67,7 +67,7 @@ public class PacmanGame implements Game {
 	}
 	
 	// verifier si le heros a bien au moins une vie, sinon le jeu se finit
-		public static boolean verifVie(int abscisse, int ordonnee) {
+		public static boolean verifEnVie(int abscisse, int ordonnee) {
 			if (Hero.getNombreVie()>0) {
 				return true;
 			}
