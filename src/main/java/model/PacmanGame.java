@@ -65,6 +65,18 @@ public class PacmanGame implements Game {
 
 		}
 	}
+	
+	// verifier si le heros a bien au moins une vie, sinon le jeu se finit
+		public static boolean verifVie(int abscisse, int ordonnee) {
+			if (Hero.getNombreVie()>0) {
+				return true;
+			}
+			else {
+				finJeu=true;
+				return false; 
+				}
+		}
+	
 	public static boolean getTime(){
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
 		if (tempsEcoule > TempsMax) {
