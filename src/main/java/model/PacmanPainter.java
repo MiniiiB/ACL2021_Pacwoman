@@ -44,7 +44,7 @@ public class PacmanPainter implements GamePainter {
 		ground = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/ground.png").getImage();
 		start = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagGreen.png").getImage();
 		finish = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagRed.png").getImage();
-		life = new ImageIcon().getImage();
+		life = new ImageIcon("C:/Users/chloe/OneDrive/Documents/ENSEM/2A/Algo%20conception%20logiciel/Projet/ACL2021_Pacwoman/src/assets/heart.png").getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		if (PacmanGame.finJeu == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
