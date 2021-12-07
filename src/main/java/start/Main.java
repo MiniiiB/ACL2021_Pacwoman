@@ -5,10 +5,6 @@ import engine.GameEngineGraphical;
 import model.PacmanController;
 import model.PacmanGame;
 
-/**
- * Hello world!
- *
- */
 public class Main 
 {
     public static void main(String[] args) throws InterruptedException {

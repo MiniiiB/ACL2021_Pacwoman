@@ -41,16 +41,18 @@ public class Hero {
 	public static void computePos(int x,int y) {
 		if(PacmanGame.check(x,y)) {
 			changePos(x,y);
-			PacmanGame.AjoutCle(x, y); //On vérifie si on a bien ajouté une clé
-			PacmanGame.verifArrivee(x, y); //On vérifie si on esr à l'arrivée
-			PacmanGame.getTime(); //On vérifie si le temps n'est pas dépassé 
+			PacmanGame.AjoutCle(x, y); //On verifie si on a bien ajoute une cle
+			PacmanGame.verifArrivee(x, y); //On verifie si on est�a l'arrivee
+			PacmanGame.verifRetireMur(x, y);
+			PacmanGame.verifVie(x, y); // on verifie si on est sur une case avec un point de vie
+			PacmanGame.getTime(); //On verifie si le temps n'est pas depasse 
 		}
 	}
 	
 	public static void changePos(int x,int y) {
 		abscisse=x;
 		ordonnee=y;
-		//PacmanPainter.drawPacman(x,y); // les coordonn�es changent maintenant il faut faire bouger le point sur le graphique
+		//PacmanPainter.drawPacman(x,y); // les coordonnees changent maintenant il faut faire bouger le point sur le graphique
 	}
 
 	public static int getAbscisse() {
@@ -59,19 +61,20 @@ public class Hero {
 	public static int getOrdonnee() {
 		return ordonnee;
 	}
-}
+
 
 //ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
-		if (verifVie && getNombreVie()<3) {
-			setNombreVie(getNombreVie() + 1);
+		if (Case.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
+			NombreVie+=1;
 			System.out.println("Vous avez gagn� une vie");
+			PacmanPainter.retirePdvPlateau(abscisse,ordonnee);
 		}
 		return getNombreVie();
 	}
 
 	public static void retireVie() {
-		if (PacmanGame.verifMonster == true) {
+		if (PacmanGame.verifMonster() == true) {
 			NombreVie=NombreVie-1;
 		}
 	}
@@ -79,6 +82,5 @@ public class Hero {
 	public static int getNombreVie() {
 		return NombreVie;
 	}
-	public static void setNombreVie(int nombreVie) {
-		NombreVie = nombreVie;
-	}
+	
+}

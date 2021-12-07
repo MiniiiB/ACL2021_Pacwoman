@@ -44,7 +44,7 @@ public class PacmanGame implements Game {
 		Hero.move(commande);
 	}
 	
-	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occup�e par un mur
+	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupee par un mur
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])!=1) {  //Si ce n'est pas un mur
 			return true;  
 		}
@@ -61,8 +61,8 @@ public class PacmanGame implements Game {
 	public static void AjoutCle(int abscisse, int ordonnee) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==4) {
 			NombreCle = NombreCle + 1;
-			System.out.println("Vous avez une clé");
-
+			System.out.println("Vous avez une cle");
+			PacmanPainter.retireClePlateau(abscisse,ordonnee);
 		}
 	}
 	
@@ -80,8 +80,8 @@ public class PacmanGame implements Game {
 	public static boolean getTime(){
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
 		if (tempsEcoule > TempsMax) {
-			finJeu = true; //On a dépassé le temps maximal autorisé donc on a perdu
-			System.out.print("Partie perdue: temps dépassé");
+			finJeu = true; //On a depasse le temps maximal autorise donc on a perdu
+			System.out.print("Partie perdue: temps depasse");
 			return true;
 		}
 		else {
@@ -102,8 +102,8 @@ public class PacmanGame implements Game {
 			return true;
 		}
 		else {
-			finJeu = true; //On a dépassé le temps maximal autorisé donc on a perdu
-			System.out.print("Partie perdue: temps dépassé");
+			finJeu = true; //On a depasse le temps maximal autorise donc on a perdu
+			System.out.print("Partie perdue: temps depasse");
 			return false;
 		}
 	} */
@@ -113,20 +113,33 @@ public class PacmanGame implements Game {
 		if (Case.verifCle(x,y)==true) {
 			NombreCle+=1;
 		}
-	}						// � enlever: la cl� du plateau
+	}						// a enlever: la cle du plateau
 	*/
 
 
-	//verifier si le jeu est fini, c'est à dire qu'on est sur la case arrivée avec au moins une clé
+	//verifier si le jeu est fini, c'est a� dire qu'on est sur la case arrivee avec au moins une cle
 	
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
 		
 		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
-			System.out.println("Le jeu est gagné!");
+			System.out.println("Le jeu est gagne!");
 			finJeu = true;
 			return true;
 		}
-			return false;
+		return false;
+	}
+	
+	public static boolean verifVie(int x, int y) {
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==5) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void verifRetireMur(int x, int y) {
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
+			PacmanPainter.retireMursPlateau(x,y);
+		}
 	}
 
 	@Override
@@ -134,6 +147,11 @@ public class PacmanGame implements Game {
 		if ( finJeu == true) {
 			return true;
 		}
+		return false;
+	}
+
+	public static boolean verifMonster() { // a faire 
+		// TODO Auto-generated method stub
 		return false;
 	}
 	

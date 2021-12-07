@@ -19,7 +19,7 @@ import engine.Hero;
 //afficheur graphique pour le game
 
 public class PacmanPainter implements GamePainter {
-	//la taille de la fen�tre
+	//la taille de la fenetre
 	protected static final int WIDTH = 800;
 	protected static final int HEIGHT = 800;
 	static String[][] labyrinthe=new String[40][40]; // retient le labyrinthe dans un tableau
@@ -29,7 +29,7 @@ public class PacmanPainter implements GamePainter {
 	}
 
 	//methode  redefinie de Afficheur retourne une image du jeu
-	@Override	// override = fonction qui est d�j� dans la classe m�re
+	@Override	// override = fonction qui est deja dans la classe mere
 	public void draw(BufferedImage im) { 
 		Image key;
 		Image player;
@@ -37,6 +37,7 @@ public class PacmanPainter implements GamePainter {
 		Image ground;
 		Image start;
 		Image finish;
+		Image life;
 		BufferedReader helpReader;
 		key = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/keyYellow.png").getImage();
 		player = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/p3_front.png").getImage();
@@ -69,7 +70,7 @@ public class PacmanPainter implements GamePainter {
 							int yImage = symboles*40;
 							int n = 4;
 							int res = Integer.parseInt(lignes[symboles]);
-							if (res == 0){ //Mur
+							if (res == 0){ //Case libre
 								crayon.drawImage(ground, xImage, yImage, null);
 								//crayon.setColor(Color.lightGray);
 								//crayon.fillPolygon(x,y,n);
@@ -79,19 +80,19 @@ public class PacmanPainter implements GamePainter {
 								//crayon.setColor(Color.lightGray);
 								//crayon.fillPolygon(x,y,n);
 							}
-							if (res == 2){ //D�part
+							if (res == 2){ //Depart
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(start, xImage, yImage, null);
 								//crayon.setColor(Color.green);
 								//crayon.fillPolygon(x,y,n);
 							}
-							if (res == 3){ //Arriv�e
+							if (res == 3){ //Arrivee
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(finish, xImage, yImage, null);
 								//crayon.setColor(Color.red);
 								//crayon.fillPolygon(x,y,n);
 							}
-							if (res == 4){ //Case cl�
+							if (res == 4){ //Case cle
 								//crayon.setColor(Color.ORANGE);
 								//crayon.fillPolygon(x,y,n);
 								crayon.drawImage(ground, xImage, yImage, null);
@@ -102,6 +103,12 @@ public class PacmanPainter implements GamePainter {
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(life, xImage, yImage, null);
 							}
+							
+							if (res == 6){ //Case casser un mur
+								crayon.setColor(Color.BLACK);
+								crayon.fillPolygon(x,y,n);
+							}
+							
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));
 							//System.out.println(Arrays.toString(labyrinthe[1]));
@@ -115,7 +122,7 @@ public class PacmanPainter implements GamePainter {
 				System.out.println("Help not available");
 			}
 			
-			//On affiche la position dès qu'elle change
+			//On affiche la position des qu'elle change
 			crayon.drawImage(player,(800*Hero.getAbscisse())/20, (800*Hero.getOrdonnee())/20, null);
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);
@@ -155,5 +162,19 @@ public class PacmanPainter implements GamePainter {
 	public static String[][] getLabyrinthe() {
 		return labyrinthe;
 	}
-
+	
+	public static void retireClePlateau(int abscisse, int ordonnee) { // retire la cle du plateau quand elle est recuperee par le heros
+		labyrinthe[abscisse][ordonnee]="0";
+	}
+	
+	public static void retirePdvPlateau(int abscisse, int ordonnee) { // retire le point de vie du plateau quand elle il est recupere par le heros
+		labyrinthe[abscisse][ordonnee]="0";
+	}
+	
+	public static void retireMursPlateau(int abscisse, int ordonnee) {
+		labyrinthe[abscisse+1][ordonnee]="0";
+		labyrinthe[abscisse-1][ordonnee]="0";
+		labyrinthe[abscisse][ordonnee+1]="0";
+		labyrinthe[abscisse][ordonnee-1]="0";
+	}
 }
