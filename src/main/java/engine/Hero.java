@@ -1,19 +1,10 @@
 package engine;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.awt.Graphics2D;
-
 
 import model.PacmanGame;
 import model.PacmanPainter;
-import engine.Case;
+
 
 public class Hero {
 	private static int abscisse=1;
@@ -65,7 +56,7 @@ public class Hero {
 
 //ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
-		if (Case.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
+		if (PacmanGame.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
 			NombreVie+=1;
 			System.out.println("Vous avez gagné une vie");
 			PacmanPainter.retirePdvPlateau(abscisse,ordonnee);

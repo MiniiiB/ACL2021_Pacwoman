@@ -1,15 +1,13 @@
 package model;
 
-import java.io.BufferedReader;
+import java.io.BufferedReader; 
 import java.io.FileReader;
 import java.io.IOException;
 
-import engine.Case;
 import engine.Cmd;
 import engine.Game;
 import engine.Hero;
 
-import java.time.Instant;
 
 //Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
 public class PacmanGame implements Game {
