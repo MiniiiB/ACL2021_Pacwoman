@@ -44,7 +44,6 @@ public class Hero {
 	public static void changePos(int x,int y) {
 		abscisse=x;
 		ordonnee=y;
-		//PacmanPainter.drawPacman(x,y); // les coordonnees changent maintenant il faut faire bouger le point sur le graphique
 	}
 
 	public static int getAbscisse() {
@@ -54,8 +53,7 @@ public class Hero {
 		return ordonnee;
 	}
 
-
-//ajouter une vie au heros quand il passe sur la case "vie"	
+	//ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
 		if (PacmanGame.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
 			nombreVie+=1;
@@ -66,7 +64,7 @@ public class Hero {
 	}
 
 	public static void retireVie() {
-		if (PacmanGame.verifMonster() == true) {
+		if (PacmanGame.verifMonster(abscisse,ordonnee,Monster.abscisse,Monster.ordonnee) == true) {
 			nombreVie=nombreVie-1;
 		}
 	}

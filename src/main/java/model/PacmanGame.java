@@ -103,7 +103,6 @@ public class PacmanGame implements Game {
 	}
 	
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
-		
 		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
 			System.out.println("Le jeu est gagne!");
 			finJeu = true;
@@ -122,14 +121,17 @@ public class PacmanGame implements Game {
 	public static void verifRetireMur(int x, int y) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
 			PacmanPainter.retireMursPlateau(x,y);
+			System.out.println(Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y+1]));
 		}
 	}
 	
-	public static void verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
+	public static boolean verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
 		// Ce programme permet de verifier si le heros est sur la meme case que le monstre, si oui il renvoie True
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseHeros][ordonneeHeros])==Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseMonster][ordonneeMonster])){
 			Hero.retireVie();
+			return true;
 		}
+		return false;
 	}
 
 	@Override
@@ -137,11 +139,6 @@ public class PacmanGame implements Game {
 		if ( finJeu == true) {
 			return true;
 		}
-		return false;
-	}
-
-	public static boolean verifMonster() { // a faire 
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

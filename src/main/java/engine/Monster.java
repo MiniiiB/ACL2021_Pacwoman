@@ -14,7 +14,6 @@ public class Monster {
 
 
 	public static void aleatoire() {
-		// 1=left, 2=up; 3=right; 4=down
 		int commandealeatoire=1+(int)(Math.random() * 4);
 		//System.out.println(commandealeatoire);
 		//aleat renvoie un nombre aleatoire entre 0 et 3, qui correspondra a  la position dans la liste
@@ -49,16 +48,15 @@ public class Monster {
 				break;
 			}
 	}
+	
 	public static void changePos(int x,int y) {
 		abscisse=x;
 		ordonnee=y;
-		System.out.println("position x :"+x+"; position y :"+y);
+		//System.out.println("position x :"+x+"; position y :"+y);
 		//PacmanPainter.drawPacman(x,y); // les coordonnees changent maintenant il faut faire bouger le point sur le graphique
 	}
 		
 	public static void computePos(int x,int y) {
-		//System.out.println(x);
-		//System.out.println(y);
 		if(PacmanGame.check(x,y)) {
 			changePos(x,y);   //que ca dans monster
 		}
@@ -67,21 +65,13 @@ public class Monster {
 	public static int getAbscisse() {
 		return abscisse;
 	}
+	
 	public static int getOrdonnee() {
 		return ordonnee;
 	}
-	/*public static void main(String[] args) {
-		aleatoire();
-		move(commande);
-		
-		//System.out.println(commande);
-		System.out.println(ordonnee);
-		System.out.println(abscisse);
-}*/
 
 	public static Cmd getCommandeMonster() {
 		return commandeMonster;
 	}
-	
 }
 
