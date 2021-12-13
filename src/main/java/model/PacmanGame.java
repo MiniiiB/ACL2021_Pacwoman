@@ -7,6 +7,7 @@ import java.io.IOException;
 import engine.Cmd;
 import engine.Game;
 import engine.Hero;
+import engine.Monster;
 
 
 //Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
@@ -37,15 +38,27 @@ public class PacmanGame implements Game {
 	//faire evoluer le jeu suite a une commande @param commande
 	@Override
 	public void evolve(Cmd commande) {
-		System.out.println("Execute "+commande);
-		System.out.println("Execute "+Hero.getAbscisse()+Hero.getOrdonnee());
+		//System.out.println("Execute "+commande);
+		//System.out.println("Execute "+Hero.getAbscisse()+Hero.getOrdonnee());
 		Hero.move(commande);
+		Monster.aleatoire();
+		//System.out.println(Monster.getCommandeMonster());
+		//System.out.println("case "+PacmanPainter.getLabyrinthe()[1][1]);
+		Monster.move(Monster.getCommandeMonster());
+		
+		
 	}
 	
 	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupee par un mur
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])!=1) {  //Si ce n'est pas un mur
-			return true;  
-		}
+		//System.out.println("case 4 "+PacmanPainter.getLabyrinthe()[abscisse][ordonnee]);
+		if (PacmanPainter.getLabyrinthe()[abscisse][ordonnee]!=null) {
+			//System.out.println("case 3 "+PacmanPainter.getLabyrinthe()[abscisse][ordonnee]);
+			if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])!=1) {  //Si ce n'est pas un mur
+				//System.out.println("commande");
+				return true;  
+			}
+			//System.out.println("commande");
+		}	
 		return false;
 	}
 	
@@ -61,7 +74,9 @@ public class PacmanGame implements Game {
 			NombreCle = NombreCle + 1;
 			System.out.println("Vous avez une cle");
 			PacmanPainter.retireClePlateau(abscisse,ordonnee);
+			System.out.println(Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee]));
 		}
+		
 	}
 	
 	// verifier si le heros a bien au moins une vie, sinon le jeu se finit
@@ -86,36 +101,6 @@ public class PacmanGame implements Game {
 			return false;
 		}
 	}
-
-	//TIMER DE ELOISE QUE JE N'AI PAS SU FAIRE BIEN FONCITONNER
-
-	/* public static long GetTime() {
-		Instant TempsEcoule= Instant.now();
-		long TempsEcouleconverti = TempsEcoule.toEpochMilli();
-		long TempsDepartconverti = TempsDepart.toEpochMilli();
-		return (TempsEcouleconverti-TempsDepartconverti);
-	}
-	public static boolean OkTime() {
-		if (GetTime()<=TempsMax){
-			return true;
-		}
-		else {
-			finJeu = true; //On a depasse le temps maximal autorise donc on a perdu
-			System.out.print("Partie perdue: temps depasse");
-			return false;
-		}
-	} */
-	
-	/*
-	public void AjoutCle(int x, int y) {		// pas utile finalement: mis dans finJeu
-		if (Case.verifCle(x,y)==true) {
-			NombreCle+=1;
-		}
-	}						// a enlever: la cle du plateau
-	*/
-
-
-	//verifier si le jeu est fini, c'est a  dire qu'on est sur la case arrivee avec au moins une cle
 	
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
 		
@@ -137,6 +122,13 @@ public class PacmanGame implements Game {
 	public static void verifRetireMur(int x, int y) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
 			PacmanPainter.retireMursPlateau(x,y);
+		}
+	}
+	
+	public static void verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
+		// Ce programme permet de verifier si le heros est sur la meme case que le monstre, si oui il renvoie True
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseHeros][ordonneeHeros])==Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseMonster][ordonneeMonster])){
+			Hero.retireVie();
 		}
 	}
 

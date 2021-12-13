@@ -9,28 +9,28 @@ import model.PacmanPainter;
 public class Hero {
 	private static int abscisse=1;
 	private static int ordonnee=1;
-	private static int NombreVie = 3;
+	private static int nombreVie = 3;
 
 	public static void move(Cmd commande) {
 		switch (commande) {
 			case LEFT:
-				computePos(getAbscisse()-1,ordonnee);
+				computePos(getAbscisse()-1,getOrdonnee());
 				break;
 			case UP:
-				computePos(getAbscisse(),ordonnee-1); // -1 car on veut labyrinthe[indice-1]
+				computePos(getAbscisse(),getOrdonnee()-1); // -1 car on veut labyrinthe[indice-1]
 				break;
 			case RIGHT:
-				computePos(getAbscisse()+1,ordonnee);
+				computePos(getAbscisse()+1,getOrdonnee());
 				break;
 			case DOWN:
-				computePos(getAbscisse(),ordonnee+1);	// +1 car on veut labyrinthe[indice+1]
+				computePos(getAbscisse(),getOrdonnee()+1);	// +1 car on veut labyrinthe[indice+1]
 				break;
 			}
 	}
 
 	
 	public static void computePos(int x,int y) {
-		if(PacmanGame.check(x,y)) {
+		if(PacmanGame.check(x,y)&& nombreVie>0) {
 			changePos(x,y);
 			PacmanGame.AjoutCle(x, y); //On verifie si on a bien ajoute une cle
 			PacmanGame.verifArrivee(x, y); //On verifie si on est a l'arrivee
@@ -39,6 +39,7 @@ public class Hero {
 			PacmanGame.getTime(); //On verifie si le temps n'est pas depasse 
 		}
 	}
+	
 	
 	public static void changePos(int x,int y) {
 		abscisse=x;
@@ -57,7 +58,7 @@ public class Hero {
 //ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
 		if (PacmanGame.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
-			NombreVie+=1;
+			nombreVie+=1;
 			System.out.println("Vous avez gagné une vie");
 			PacmanPainter.retirePdvPlateau(abscisse,ordonnee);
 		}
@@ -66,12 +67,12 @@ public class Hero {
 
 	public static void retireVie() {
 		if (PacmanGame.verifMonster() == true) {
-			NombreVie=NombreVie-1;
+			nombreVie=nombreVie-1;
 		}
 	}
 	
 	public static int getNombreVie() {
-		return NombreVie;
+		return nombreVie;
 	}
 	
 }

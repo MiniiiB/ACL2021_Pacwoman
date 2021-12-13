@@ -3,6 +3,7 @@ package model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 
@@ -15,6 +16,7 @@ import java.awt.Image;
 
 import engine.GamePainter;
 import engine.Hero;
+import java.nio.file.*;
 
 //afficheur graphique pour le game
 
@@ -39,13 +41,28 @@ public class PacmanPainter implements GamePainter {
 		Image finish;
 		Image life;
 		BufferedReader helpReader;
-		key = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/keyYellow.png").getImage();
-		player = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/p3_front.png").getImage();
-		wall = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/boxAlt.png").getImage();
-		ground = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/ground.png").getImage();
-		start = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagGreen.png").getImage();
-		finish = new ImageIcon("C:/Users/Thomas/Desktop/ACL2021_Pacwoman/src/assets/flagRed.png").getImage();
-		life = new ImageIcon("C:/Users/chloe/OneDrive/Documents/ENSEM/2A/Algo%20conception%20logiciel/Projet/ACL2021_Pacwoman/src/assets/heart.png").getImage();
+		Path cheminKey = Paths.get("src/assets/keyYellow.png");
+		Path absoluKey = cheminKey.toAbsolutePath();
+		Path cheminPlayer = Paths.get("src/assets/p3_front.png");
+		Path absoluPlayer = cheminPlayer.toAbsolutePath();
+		Path cheminWall = Paths.get("src/assets/boxAlt.png");
+		Path absoluWall = cheminWall.toAbsolutePath();
+		Path cheminGround = Paths.get("src/assets/ground.png");
+		Path absoluGround = cheminGround.toAbsolutePath();
+		Path cheminStart = Paths.get("src/assets/flagGreen.png");
+		Path absoluStart= cheminStart.toAbsolutePath();	
+		Path cheminFinish = Paths.get("src/assets/flagRed.png");
+		Path absoluFinish = cheminFinish.toAbsolutePath();
+		Path cheminLife = Paths.get("src/assets/heart.png");
+		Path absoluLife = cheminLife.toAbsolutePath();
+		//System.out.println("chemin absolu : " + absoluKey.toString());
+		key = new ImageIcon(absoluKey.toString()).getImage();
+		player = new ImageIcon(absoluPlayer.toString()).getImage();
+		wall = new ImageIcon(absoluWall.toString()).getImage();
+		ground = new ImageIcon(absoluGround.toString()).getImage();
+		start = new ImageIcon(absoluStart.toString()).getImage();
+		finish = new ImageIcon(absoluFinish.toString()).getImage();
+		life = new ImageIcon(absoluLife.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		if (PacmanGame.finJeu == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
