@@ -53,7 +53,6 @@ public class Monster {
 		abscisse=x;
 		ordonnee=y;
 		//System.out.println("position x :"+x+"; position y :"+y);
-		//PacmanPainter.drawPacman(x,y); // les coordonnees changent maintenant il faut faire bouger le point sur le graphique
 	}
 		
 	public static void computePos(int x,int y) {

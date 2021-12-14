@@ -11,6 +11,7 @@ public class Main
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("helpFilePacman.txt");
 		PacmanPainter painter = new PacmanPainter();
+		// cree le labyrinthe une seule fois
 		painter.creationLabyrinthe();
 		PacmanController controller = new PacmanController();
 

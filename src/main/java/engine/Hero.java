@@ -64,7 +64,7 @@ public class Hero {
 
 	public static void retireVie() {
 		if (PacmanGame.verifMonster(abscisse,ordonnee,Monster.abscisse,Monster.ordonnee) == true) {
-			nombreVie=nombreVie-1;
+			nombreVie=nombreVie-1; 
 		}
 	}
 	

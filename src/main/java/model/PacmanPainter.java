@@ -148,7 +148,7 @@ public class PacmanPainter implements GamePainter {
 		}
 	}
 	
-	public void creationLabyrinthe(){
+	public void creationLabyrinthe(){ // cree le labyrinthe une seule fois
 		BufferedReader helpReader;
 		try {
 			helpReader = new BufferedReader(new FileReader("helpFilePacman.txt"));
