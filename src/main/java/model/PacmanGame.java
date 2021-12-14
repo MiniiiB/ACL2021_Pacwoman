@@ -43,7 +43,6 @@ public class PacmanGame implements Game {
 		Hero.move(commande);
 		Monster.aleatoire();
 		//System.out.println(Monster.getCommandeMonster());
-		//System.out.println("case "+PacmanPainter.getLabyrinthe()[1][1]);
 		Monster.move(Monster.getCommandeMonster());
 		
 		
