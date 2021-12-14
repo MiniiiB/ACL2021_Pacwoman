@@ -87,7 +87,7 @@ public class PacmanPainter implements GamePainter {
 							int xImage = compteurLignes*40;
 							int yImage = symboles*40;
 							int n = 4;
-							int res = Integer.parseInt(lignes[symboles]);
+							int res = Integer.parseInt(labyrinthe[compteurLignes][symboles]);
 							if (res == 0){ //Case libre
 								crayon.drawImage(ground, xImage, yImage, null);
 								//crayon.setColor(Color.lightGray);
@@ -129,7 +129,7 @@ public class PacmanPainter implements GamePainter {
 							
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));
-							//System.out.println(Arrays.toString(labyrinthe[10]));
+							System.out.println(Arrays.toString(labyrinthe[10]));
 							
 						}
 					compteurLignes ++;
@@ -189,11 +189,11 @@ public class PacmanPainter implements GamePainter {
 	}
 	
 	public static void retireMursPlateau(int abscisse, int ordonnee) {
-		System.out.println(Arrays.toString(labyrinthe[10]));
+		//System.out.println(Arrays.toString(labyrinthe[10]));
 		labyrinthe[abscisse+1][ordonnee]="0";
 		labyrinthe[abscisse-1][ordonnee]="0";
 		labyrinthe[abscisse][ordonnee+1]="0";
 		labyrinthe[abscisse][ordonnee-1]="0";
-		System.out.println(Arrays.toString(labyrinthe[10]));
+		//System.out.println(Arrays.toString(labyrinthe[10]));
 	}
 }
