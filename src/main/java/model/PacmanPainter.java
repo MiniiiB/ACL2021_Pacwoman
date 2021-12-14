@@ -17,6 +17,7 @@ import java.awt.Image;
 
 import engine.GamePainter;
 import engine.Hero;
+import engine.Monster;
 import java.nio.file.*;
 
 //afficheur graphique pour le game
@@ -41,6 +42,8 @@ public class PacmanPainter implements GamePainter {
 		Image start;
 		Image finish;
 		Image life;
+		Image monster;
+		Image caseSpe;
 		BufferedReader helpReader;
 		Path cheminKey = Paths.get("src/assets/keyYellow.png");
 		Path absoluKey = cheminKey.toAbsolutePath();
@@ -56,6 +59,10 @@ public class PacmanPainter implements GamePainter {
 		Path absoluFinish = cheminFinish.toAbsolutePath();
 		Path cheminLife = Paths.get("src/assets/heart.png");
 		Path absoluLife = cheminLife.toAbsolutePath();
+		Path cheminMonster = Paths.get("src/assets/flyDead.png");
+		Path absoluMonster = cheminMonster.toAbsolutePath();
+		Path cheminCaseSpe = Paths.get("src/assets/lock_yellow.png");
+		Path absoluCaseSpe = cheminCaseSpe.toAbsolutePath();
 		//System.out.println("chemin absolu : " + absoluKey.toString());
 		key = new ImageIcon(absoluKey.toString()).getImage();
 		player = new ImageIcon(absoluPlayer.toString()).getImage();
@@ -64,6 +71,8 @@ public class PacmanPainter implements GamePainter {
 		start = new ImageIcon(absoluStart.toString()).getImage();
 		finish = new ImageIcon(absoluFinish.toString()).getImage();
 		life = new ImageIcon(absoluLife.toString()).getImage();
+		monster = new ImageIcon(absoluMonster.toString()).getImage();
+		caseSpe = new ImageIcon(absoluCaseSpe.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		if (PacmanGame.finJeu == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
@@ -123,8 +132,8 @@ public class PacmanPainter implements GamePainter {
 							}
 							
 							if (res == 6){ //Case casser un mur
-								crayon.setColor(Color.BLACK);
-								crayon.fillPolygon(x,y,n);
+								crayon.drawImage(ground, xImage, yImage, null);
+								crayon.drawImage(caseSpe, xImage, yImage, null);
 							}
 							
 							//System.out.println(Arrays.toString(lignes));
@@ -142,9 +151,22 @@ public class PacmanPainter implements GamePainter {
 			
 			//On affiche la position des qu'elle change
 			crayon.drawImage(player,(800*Hero.getAbscisse())/20, (800*Hero.getOrdonnee())/20, null);
+			crayon.drawImage(monster,(800*Monster.getAbscisse())/20, (800*Monster.getOrdonnee())/20, null);
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);
 			//System.out.println(Arrays.toString(labyrinthe[10]));
+			if (Hero.getNombreVie() == 3) {
+				crayon.drawImage(life,0, 0, null);
+				crayon.drawImage(life,20, 0, null);
+				crayon.drawImage(life,40, 0, null);
+			}
+			if (Hero.getNombreVie() == 2) {
+				crayon.drawImage(life,0, 0, null);
+				crayon.drawImage(life,20, 0, null);
+			}
+			if (Hero.getNombreVie() == 1) {
+				crayon.drawImage(life,0, 0, null);
+			}
 		}
 	}
 	
