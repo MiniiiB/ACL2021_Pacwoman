@@ -1,6 +1,7 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -78,7 +79,7 @@ public class PacmanPainter implements GamePainter {
 				
 				while ((ligne = helpReader.readLine()) != null) {
 					String[] lignes = ligne.split("");
-					getLabyrinthe()[compteurLignes]=lignes;
+					//getLabyrinthe()[compteurLignes]=lignes;
 						//On utilise des cases de 40px par 40 px
 						for (int symboles = 0; symboles < lignes.length; symboles ++){
 							int x[] = {compteurLignes*40,compteurLignes*40,compteurLignes*40+40,compteurLignes*40+40};
@@ -128,7 +129,7 @@ public class PacmanPainter implements GamePainter {
 							
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));
-							//System.out.println(Arrays.toString(labyrinthe[1]));
+							//System.out.println(Arrays.toString(labyrinthe[10]));
 							
 						}
 					compteurLignes ++;
@@ -143,30 +144,29 @@ public class PacmanPainter implements GamePainter {
 			crayon.drawImage(player,(800*Hero.getAbscisse())/20, (800*Hero.getOrdonnee())/20, null);
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);
+			//System.out.println(Arrays.toString(labyrinthe[10]));
 		}
-		
-		
-		
-		
 	}
-
 	
-
-
-/* 	public void drawPacman(BufferedImage im){	// dessiner le pacman � chaque instant ou chaque fois qu'il bouge
-		boolean t = true;
-		
-		Graphics2D crayon = (Graphics2D) im.getGraphics();
-		crayon.setColor(Color.yellow);
-		crayon.fillOval(getWidth()/40,getHeight()/40,getWidth()/40,getHeight()/40);
-		while (t) {
-			crayon.setColor(Color.pink);
-			crayon.fillOval((400*Hero.getAbscisse())/40,(400*Hero.getOrdonnee())/40,400/40,400/40);
-		} */
-
-	//crayon.setColor(Color.pink);
-		//crayon.fillOval((400*abscisse)/40,(400*ordonnee)/40,400/40,400/40);
-	//}
+	public void creationLabyrinthe(){
+		BufferedReader helpReader;
+		try {
+			helpReader = new BufferedReader(new FileReader("helpFilePacman.txt"));
+			String ligne;
+			
+			int compteurLignes = 0;
+			
+			while ((ligne = helpReader.readLine()) != null) {
+				String[] lignes = ligne.split("");
+				labyrinthe[compteurLignes]=lignes;
+				compteurLignes ++;
+			}
+			//System.out.println(Arrays.toString(labyrinthe[10]));
+		}
+		catch (IOException e) {
+			System.out.println("Help not available");
+		}
+	}
 
 	public int getWidth() {
 		return WIDTH;
@@ -189,9 +189,11 @@ public class PacmanPainter implements GamePainter {
 	}
 	
 	public static void retireMursPlateau(int abscisse, int ordonnee) {
+		System.out.println(Arrays.toString(labyrinthe[10]));
 		labyrinthe[abscisse+1][ordonnee]="0";
 		labyrinthe[abscisse-1][ordonnee]="0";
 		labyrinthe[abscisse][ordonnee+1]="0";
 		labyrinthe[abscisse][ordonnee-1]="0";
+		System.out.println(Arrays.toString(labyrinthe[10]));
 	}
 }

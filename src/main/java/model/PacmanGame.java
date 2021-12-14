@@ -120,8 +120,15 @@ public class PacmanGame implements Game {
 	
 	public static void verifRetireMur(int x, int y) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
-			PacmanPainter.retireMursPlateau(x,y);
-			System.out.println(Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y+1]));
+			PacmanPainter.labyrinthe[x+1][y]="0";
+			PacmanPainter.labyrinthe[x-1][y]="0";
+			PacmanPainter.labyrinthe[x][y+1]="0";
+			PacmanPainter.labyrinthe[x][y-1]="0";
+			//PacmanPainter.retireMursPlateau(x,y);
+			/*System.out.println(Integer.parseInt(PacmanPainter.labyrinthe[x][y+1]));
+			System.out.println(Integer.parseInt(PacmanPainter.labyrinthe[x][y-1]));
+			System.out.println(Integer.parseInt(PacmanPainter.labyrinthe[x+1][y]));
+			System.out.println(Integer.parseInt(PacmanPainter.labyrinthe[x-1][y]));*/
 		}
 	}
 	

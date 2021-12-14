@@ -25,10 +25,9 @@ public class Hero {
 			case DOWN:
 				computePos(getAbscisse(),getOrdonnee()+1);	// +1 car on veut labyrinthe[indice+1]
 				break;
-			}
+		}
 	}
 
-	
 	public static void computePos(int x,int y) {
 		if(PacmanGame.check(x,y)&& nombreVie>0) {
 			changePos(x,y);
