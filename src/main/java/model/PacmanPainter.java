@@ -221,20 +221,7 @@ public class PacmanPainter implements GamePainter {
 		return labyrinthe;
 	}
 	
-	public static void retireClePlateau(int abscisse, int ordonnee) { // retire la cle du plateau quand elle est recuperee par le heros
+	public static void retireObjet(int abscisse, int ordonnee) { // retire la cle du plateau quand elle est recuperee par le heros
 		labyrinthe[abscisse][ordonnee]="0";
-	}
-	
-	public static void retirePdvPlateau(int abscisse, int ordonnee) { // retire le point de vie du plateau quand elle il est recupere par le heros
-		labyrinthe[abscisse][ordonnee]="0";
-	}
-	
-	public static void retireMursPlateau(int abscisse, int ordonnee) {
-		//System.out.println(Arrays.toString(labyrinthe[10]));
-		labyrinthe[abscisse+1][ordonnee]="0";
-		labyrinthe[abscisse-1][ordonnee]="0";
-		labyrinthe[abscisse][ordonnee+1]="0";
-		labyrinthe[abscisse][ordonnee-1]="0";
-		//System.out.println(Arrays.toString(labyrinthe[10]));
 	}
 }

@@ -35,6 +35,7 @@ public class Hero {
 			PacmanGame.verifArrivee(x, y); //On verifie si on est a l'arrivee
 			PacmanGame.verifRetireMur(x, y);
 			PacmanGame.verifVie(x, y); // on verifie si on est sur une case avec un point de vie
+			PacmanGame.verifMonster(abscisse, ordonnee, Monster.abscisse, Monster.ordonnee);
 			PacmanGame.getTime(); //On verifie si le temps n'est pas depasse 
 		}
 	}
@@ -54,18 +55,16 @@ public class Hero {
 
 	//ajouter une vie au heros quand il passe sur la case "vie"	
 	public static int ajoutVie(int abscisse, int ordonnee) {
-		if (PacmanGame.verifVie(abscisse,ordonnee) && getNombreVie()<3) {
+		if (PacmanGame.verifVie(abscisse,ordonnee) && nombreVie<3) {
 			nombreVie+=1;
 			System.out.println("Vous avez gagné une vie");
-			PacmanPainter.retirePdvPlateau(abscisse,ordonnee);
+			PacmanPainter.retireObjet(abscisse,ordonnee);
 		}
 		return getNombreVie();
 	}
 
 	public static void retireVie() {
-		if (PacmanGame.verifMonster(abscisse,ordonnee,Monster.abscisse,Monster.ordonnee) == true) {
-			nombreVie=nombreVie-1; 
-		}
+		nombreVie=nombreVie-1; 
 	}
 	
 	public static int getNombreVie() {
