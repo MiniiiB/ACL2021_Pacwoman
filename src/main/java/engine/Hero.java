@@ -50,13 +50,9 @@ public class Hero {
 	}
 
 	//ajouter une vie au heros quand il passe sur la case "vie"	
-	public static int ajoutVie(int abscisse, int ordonnee) {
-		if (PacmanGame.verifVie(abscisse,ordonnee) && nombreVie<3) {
-			nombreVie+=1;
-			System.out.println("Vous avez gagne	 une vie");
-			PacmanPainter.retireObjet(abscisse,ordonnee);
-		}
-		return getNombreVie();
+	public static void ajoutVie() {
+		nombreVie+=1;
+		
 	}
 
 	public static void retireVie() {

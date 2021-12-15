@@ -119,13 +119,15 @@ public class PacmanGame implements Game {
 		return false;
 	}
 	
-	public static boolean verifVie(int x, int y) {
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==5) {
-			return true;
+	public static void verifVie(int x, int y) {
+		if ((Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==5)&& Hero.getNombreVie()<3){
+			System.out.println("Vous avez gagne	 une vie");
+			Hero.ajoutVie();
+			PacmanPainter.retireObjet(x,y);
 		}
-		return false;
-	}
 	
+		
+	}
 	public static void verifRetireMur(int x, int y) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
 			PacmanPainter.retireObjet(x+1,y);
