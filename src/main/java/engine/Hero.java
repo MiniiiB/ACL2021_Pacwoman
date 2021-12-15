@@ -32,7 +32,7 @@ public class Hero {
 		if(PacmanGame.check(x,y)&& nombreVie>0) {
 			changePos(x,y);
 			PacmanGame.AjoutCle(x, y); //On verifie si on a bien ajoute une cle
-			PacmanGame.verifArrivee(x, y); //On verifie si on est a l'arrivee
+			PacmanGame.verifArrivee(x, y); //On verifie si on est a l'arrivee
 			PacmanGame.verifRetireMur(x, y);
 			PacmanGame.verifVie(x, y); // on verifie si on est sur une case avec un point de vie
 			PacmanGame.verifMonster(abscisse, ordonnee, Monster.abscisse, Monster.ordonnee);
@@ -57,7 +57,7 @@ public class Hero {
 	public static int ajoutVie(int abscisse, int ordonnee) {
 		if (PacmanGame.verifVie(abscisse,ordonnee) && nombreVie<3) {
 			nombreVie+=1;
-			System.out.println("Vous avez gagné une vie");
+			System.out.println("Vous avez gagne	 une vie");
 			PacmanPainter.retireObjet(abscisse,ordonnee);
 		}
 		return getNombreVie();
