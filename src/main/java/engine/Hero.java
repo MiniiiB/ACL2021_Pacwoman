@@ -1,10 +1,7 @@
 package engine;
 
-
-
 import model.PacmanGame;
 import model.PacmanPainter;
-
 
 public class Hero {
 	private static int abscisse=1;
@@ -35,7 +32,6 @@ public class Hero {
 			PacmanGame.verifArrivee(x, y); //On verifie si on est a l'arrivee
 			PacmanGame.verifRetireMur(x, y);
 			PacmanGame.verifVie(x, y); // on verifie si on est sur une case avec un point de vie
-			PacmanGame.verifMonster(abscisse, ordonnee, Monster.abscisse, Monster.ordonnee);
 			PacmanGame.getTime(); //On verifie si le temps n'est pas depasse 
 		}
 	}
@@ -64,7 +60,7 @@ public class Hero {
 	}
 
 	public static void retireVie() {
-		nombreVie=nombreVie-1; 
+		nombreVie=nombreVie-1;
 	}
 	
 	public static int getNombreVie() {

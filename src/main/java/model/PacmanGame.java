@@ -38,12 +38,13 @@ public class PacmanGame implements Game {
 	//faire evoluer le jeu suite a une commande @param commande
 	@Override
 	public void evolve(Cmd commande) {
-		System.out.println("Execute "+commande);
+		//System.out.println("Execute "+commande);
 		//System.out.println("Execute "+Hero.getAbscisse()+Hero.getOrdonnee());
 		Hero.move(commande);
 		Monster.aleatoire();
 		//System.out.println(Monster.getCommandeMonster());
 		Monster.move(Monster.getCommandeMonster());
+		PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Monster.abscisse, Monster.ordonnee);
 		getTime();
 		
 		
