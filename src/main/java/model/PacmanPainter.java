@@ -146,7 +146,7 @@ public class PacmanPainter implements GamePainter {
 							
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));
-							System.out.println(Arrays.toString(labyrinthe[10]));
+							//System.out.println(Arrays.toString(labyrinthe[10]));
 							
 						}
 					compteurLignes ++;

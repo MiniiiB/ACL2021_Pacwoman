@@ -8,7 +8,7 @@ import model.PacmanGame;
 import java.awt.event.KeyEvent;
 
 public class Monster {
-	public static int abscisse=1;
+	public static int abscisse=19;
 	public static int ordonnee=1;
 	private static Cmd commandeMonster;
 
