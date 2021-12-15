@@ -142,7 +142,7 @@ public class PacmanGame implements Game {
 
 	@Override
 	public boolean finJeu() {
-		if ( finJeu == true) {
+		if ( finJeu ) {
 			return true;
 		}
 		return false;

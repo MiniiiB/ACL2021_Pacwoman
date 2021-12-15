@@ -9,7 +9,7 @@ import model.PacmanPainter;
 public class Hero {
 	private static int abscisse=1;
 	private static int ordonnee=1;
-	private static int nombreVie = 3;
+	private static int nombreVie = 2;
 
 	public static void move(Cmd commande) {
 		switch (commande) {
