@@ -24,8 +24,8 @@ import java.nio.file.*;
 
 public class PacmanPainter implements GamePainter {
 	//la taille de la fenetre
-	protected static final int WIDTH = 800;
-	protected static final int HEIGHT = 800;
+	protected static final int WIDTH = 400;
+	protected static final int HEIGHT = 400;
 	static String[][] labyrinthe=new String[40][40]; // retient le labyrinthe dans un tableau
 
 	//appelle constructeur parent @param game le jeutest a afficher
@@ -59,7 +59,7 @@ public class PacmanPainter implements GamePainter {
 		Path absoluFinish = cheminFinish.toAbsolutePath();
 		Path cheminLife = Paths.get("src/assets/heart.png");
 		Path absoluLife = cheminLife.toAbsolutePath();
-		Path cheminMonster = Paths.get("src/assets/flyDead.png");
+		Path cheminMonster = Paths.get("src/assets/monster.png");
 		Path absoluMonster = cheminMonster.toAbsolutePath();
 		Path cheminCaseSpe = Paths.get("src/assets/lock_yellow.png");
 		Path absoluCaseSpe = cheminCaseSpe.toAbsolutePath();
@@ -74,10 +74,18 @@ public class PacmanPainter implements GamePainter {
 		monster = new ImageIcon(absoluMonster.toString()).getImage();
 		caseSpe = new ImageIcon(absoluCaseSpe.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
+
+		
+
 		if (PacmanGame.finJeu == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 			crayon.setColor(Color.BLACK);
-			crayon.drawString("Fin du jeu",400,400);
+			int x_fin[] = {0,0,400,400};
+			int y_fin[] = {0,400,400,0};
+			int n_fin = 4;
+			crayon.fillPolygon(x_fin,y_fin,n_fin);
+			crayon.setColor(Color.WHITE);
+			crayon.drawString("Fin du jeu",150,240);
 		}
 		else {
 			try {
@@ -89,12 +97,12 @@ public class PacmanPainter implements GamePainter {
 				while ((ligne = helpReader.readLine()) != null) {
 					String[] lignes = ligne.split("");
 					//getLabyrinthe()[compteurLignes]=lignes;
-						//On utilise des cases de 40px par 40 px
+						//On utilise des cases de 20px par 20 px
 						for (int symboles = 0; symboles < lignes.length; symboles ++){
-							int x[] = {compteurLignes*40,compteurLignes*40,compteurLignes*40+40,compteurLignes*40+40};
-							int y[] = {symboles*40,symboles*40+40,symboles*40+40,symboles*40};
-							int xImage = compteurLignes*40;
-							int yImage = symboles*40;
+							int x[] = {compteurLignes*20,compteurLignes*20,compteurLignes*20+20,compteurLignes*20+20};
+							int y[] = {symboles*20,symboles*20+20,symboles*20+20,symboles*20};
+							int xImage = compteurLignes*20;
+							int yImage = symboles*20;
 							int n = 4;
 							int res = Integer.parseInt(labyrinthe[compteurLignes][symboles]);
 							if (res == 0){ //Case libre
@@ -150,8 +158,8 @@ public class PacmanPainter implements GamePainter {
 			}
 			
 			//On affiche la position des qu'elle change
-			crayon.drawImage(player,(800*Hero.getAbscisse())/20, (800*Hero.getOrdonnee())/20, null);
-			crayon.drawImage(monster,(800*Monster.getAbscisse())/20, (800*Monster.getOrdonnee())/20, null);
+			crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
+			crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);
 			//System.out.println(Arrays.toString(labyrinthe[10]));
@@ -167,6 +175,17 @@ public class PacmanPainter implements GamePainter {
 			if (Hero.getNombreVie() == 1) {
 				crayon.drawImage(life,0, 0, null);
 			}
+			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+			crayon.setColor(Color.BLACK);
+			int x_chrono[] = {340,340,360,360};
+			int y_chrono[] = {0,20,20,0};
+			int n_chrono = 4;
+			crayon.fillPolygon(x_chrono,y_chrono,n_chrono);
+			crayon.setColor(Color.WHITE);
+			crayon.drawString(PacmanGame.gettime(),345,10);
+			
+			
+			
 		}
 	}
 	

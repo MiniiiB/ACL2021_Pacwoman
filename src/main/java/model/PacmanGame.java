@@ -15,7 +15,7 @@ public class PacmanGame implements Game {
 	private static int NombreCle=0;
 	private static long tempsDepart = System.currentTimeMillis();
 	//private static Instant TempsDepart=Instant.now();
-	private static long TempsMax= 20000; //C'est en milisecondes donc ici on dispose de 20s pour finir le jeu
+	private static long TempsMax= 30000; //C'est en milisecondes donc ici on dispose de 30s pour finir le jeu
 	
 
 	//constructeur avec fichier source pour le help
@@ -44,6 +44,7 @@ public class PacmanGame implements Game {
 		Monster.aleatoire();
 		//System.out.println(Monster.getCommandeMonster());
 		Monster.move(Monster.getCommandeMonster());
+		getTime();
 		
 		
 	}
@@ -99,6 +100,13 @@ public class PacmanGame implements Game {
 		else {
 			return false;
 		}
+	}
+
+	public static String gettime(){
+		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
+		long tps = tempsEcoule / 1000;
+		String s = String.valueOf(tps);
+		return s;
 	}
 	
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
