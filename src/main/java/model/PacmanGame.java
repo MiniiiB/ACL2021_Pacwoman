@@ -44,6 +44,7 @@ public class PacmanGame implements Game {
 		Monster.aleatoire();
 		//System.out.println(Monster.getCommandeMonster());
 		Monster.move(Monster.getCommandeMonster());
+		PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Monster.abscisse, Monster.ordonnee);
 		getTime();
 		
 		
@@ -73,7 +74,7 @@ public class PacmanGame implements Game {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==4) {
 			NombreCle = NombreCle + 1;
 			System.out.println("Vous avez une cle");
-			PacmanPainter.retireClePlateau(abscisse,ordonnee);
+			PacmanPainter.retireObjet(abscisse,ordonnee);
 			//System.out.println(Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee]));
 		}
 		
@@ -118,22 +119,27 @@ public class PacmanGame implements Game {
 		return false;
 	}
 	
-	public static boolean verifVie(int x, int y) {
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==5) {
-			return true;
+	public static void verifVie(int x, int y) {
+		if ((Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==5)&& Hero.getNombreVie()<3){
+			System.out.println("Vous avez gagne	 une vie");
+			Hero.ajoutVie();
+			PacmanPainter.retireObjet(x,y);
 		}
-		return false;
-	}
 	
+		
+	}
 	public static void verifRetireMur(int x, int y) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
-			PacmanPainter.retireMursPlateau(x,y);
+			PacmanPainter.retireObjet(x+1,y);
+			PacmanPainter.retireObjet(x-1,y);
+			PacmanPainter.retireObjet(x,y+1);
+			PacmanPainter.retireObjet(x,y-1);
 		}
 	}
 	
 	public static boolean verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
 		// Ce programme permet de verifier si le heros est sur la meme case que le monstre, si oui il renvoie True
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseHeros][ordonneeHeros])==Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseMonster][ordonneeMonster])){
+		if (abscisseHeros==abscisseMonster && ordonneeHeros==ordonneeMonster){
 			Hero.retireVie();
 			return true;
 		}
@@ -142,7 +148,7 @@ public class PacmanGame implements Game {
 
 	@Override
 	public boolean finJeu() {
-		if ( finJeu ) {
+		if (finJeu) {
 			return true;
 		}
 		return false;

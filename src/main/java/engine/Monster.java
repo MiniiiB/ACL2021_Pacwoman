@@ -1,6 +1,5 @@
 package engine;
 
-
 import java.io.BufferedReader;
 
 import model.PacmanGame;
