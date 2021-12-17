@@ -67,3 +67,35 @@ Deadlines :
 * 6/12 : tout fonctionne
 * 10/12 ; modifier diagrammes
 * 13/12 : rendre au prof : tout ok
+
+############################################################################################################
+Review S2
+
+- Meilleure répartition des tâches et donc une meilleur efficacité dans le travail 
+- Toujours de gros problèmes ralentissant la progression avec les PUSH/PULL depuis Github via Eclipse
+- Problème dans les deadlines qui ne sont pas assez bien respectées et qui ralentissent le projet en général
+- Meilleure communication globale au sein du groupe qui permet de régler les problèmes qui surviennent de façon plus rapide
+############################################################################################################
+Backlog  pour le S3:
+
+Partie affichage des cases: 
+Tâche 1: afficher le case arrivée uniquement lorsque la clé a été récupéré par le joueur
+
+Partie affichage général:
+Tâche 1: Faire un écran de fin différent en fonction de la victoire ou de la défaite du joueur
+Tâche 2: Afficher l'écran de fin de défaite lorsque le joueur perd toutes ses vies
+Tâche 3: Modifier le héros lorsqu'il est sous l'effet de la potion
+Partie fonctionnalités: 
+Tâche 1: Rajouter de nouveaux monstres dans le labyrinthe pour complexifier le jeu 
+Tâche 2: Implémenter une case potion qui permet de passer sur les monstres sans perdre de vie et les éliminer
+
+Répartition:
+Anaelle: Implémenter la case potion 
+Thomas: Gérer l'affichage des différents écrans de fin 
+Chloé: Afficher la case arrivée au bon moment et afficher l'écran de fin lorsque le joueur perd toutes ses vies 
+Eloise: Rajouter des monstres sur la carte
+
+Deadlines : 
+17/12: Avoir fini tous les diagrammes pour le S3
+31/12: Toutes les fonctionnalités sont implémentées dans le code 
+03/01: Tests des nouveaux ajouts terminé et tout est opérationnel
