@@ -7,9 +7,10 @@ import model.PacmanGame;
 import java.awt.event.KeyEvent;
 
 public class Monster {
-	public static int abscisse=19;
+	public static int abscisse=18;
 	public static int ordonnee=1;
 	private static Cmd commandeMonster;
+	private static boolean monstreEnVie=true;
 
 
 	public static void aleatoire() {
@@ -70,6 +71,10 @@ public class Monster {
 
 	public static Cmd getCommandeMonster() {
 		return commandeMonster;
+	}
+
+	public static boolean isMonstreEnVie() {
+		return monstreEnVie;
 	}
 }
 

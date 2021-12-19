@@ -143,6 +143,10 @@ public class PacmanPainter implements GamePainter {
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(caseSpe, xImage, yImage, null);
 							}
+							if (res == 7){ //Case potion 
+								crayon.setColor(Color.BLACK);
+								crayon.fillPolygon(x,y,n);
+							}
 							
 							//System.out.println(Arrays.toString(lignes));
 							//System.out.println(Arrays.toString(x));
@@ -150,16 +154,17 @@ public class PacmanPainter implements GamePainter {
 							
 						}
 					compteurLignes ++;
-				}
-						
-					}
+				}		
+			}
 			catch (IOException e) {
 				System.out.println("Help not available");
 			}
 			
 			//On affiche la position des qu'elle change
 			crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
-			crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
+			if(Monster.isMonstreEnVie()) {
+				crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
+			}
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);
 			//System.out.println(Arrays.toString(labyrinthe[10]));
