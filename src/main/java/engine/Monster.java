@@ -76,5 +76,9 @@ public class Monster {
 	public static boolean isMonstreEnVie() {
 		return monstreEnVie;
 	}
+	
+	public static void tueMonstre() {
+		monstreEnVie=false;
+	}
 }
 

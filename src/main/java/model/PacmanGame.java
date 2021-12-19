@@ -116,10 +116,9 @@ public class PacmanGame implements Game {
 			System.out.println("Vous avez gagne	 une vie");
 			Hero.ajoutVie();
 			PacmanPainter.retireObjet(x,y);
-		}
-	
-		
+		}	
 	}
+
 	public static void verifRetireMur(int x, int y) { // parametre : abscisse et ordonnee du heros
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==6) {
 			PacmanPainter.retireObjet(x+1,y); // retire les 4 murs autour de la case retire mur
@@ -132,7 +131,13 @@ public class PacmanGame implements Game {
 	public static void verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
 		// Ce programme permet de verifier si le heros est sur la meme case que le monstre, si oui il renvoie True
 		if (abscisseHeros==abscisseMonster && ordonneeHeros==ordonneeMonster){
-			Hero.retireVie();
+			if(Hero.isPotionEnCours()) {
+				Monster.tueMonstre();
+			}
+			else {
+				Hero.retireVie();
+			}
+			
 		}
 	}
 	
@@ -145,7 +150,17 @@ public class PacmanGame implements Game {
 	}
 	
 	public static void utilisePotion() {
-		
+		if(Hero.isPotionEnCours()) {
+			long tempsEcoulePotion = System.currentTimeMillis() - Hero.getTempsLancementPotion();
+			System.out.println(tempsEcoulePotion);
+			long tempsPotion= 5000; // 5 secondes
+			if(tempsEcoulePotion<tempsPotion) {
+				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Monster.getAbscisse(),Monster.getOrdonnee());
+			}
+			else {
+				Hero.potionPlusValide();
+			}
+		}	
 	}
 
 	@Override

@@ -144,6 +144,7 @@ public class PacmanPainter implements GamePainter {
 								crayon.drawImage(caseSpe, xImage, yImage, null);
 							}
 							if (res == 7){ //Case potion 
+								// thomas : j'ai mis une case noire pour la potion pour l'instant
 								crayon.setColor(Color.BLACK);
 								crayon.fillPolygon(x,y,n);
 							}
@@ -161,7 +162,14 @@ public class PacmanPainter implements GamePainter {
 			}
 			
 			//On affiche la position des qu'elle change
-			crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
+			if (!Hero.isPotionEnCours()) {
+				crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
+			}
+			else {
+				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours à ce moment la, pour l'instant j'ai remis le point rose
+				crayon.setColor(Color.pink);
+				crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
+			}
 			if(Monster.isMonstreEnVie()) {
 				crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
 			}

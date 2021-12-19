@@ -9,6 +9,7 @@ public class Hero {
 	private static int nombreVie = 3;
 	private static int nombrePotion = 0;
 	private static boolean potionEnCours=false; // vrai lorsque la potion est en train d'être utilisee
+	private static long tempsLancementPotion;
 
 	public static void move(Cmd commande) {
 		switch (commande) {
@@ -26,9 +27,11 @@ public class Hero {
 				break;
 			case SPACE:
 				if (nombrePotion!=0) {
+					tempsLancementPotion = System.currentTimeMillis();
 					potionEnCours=true;
 					nombrePotion=nombrePotion-1;
 					System.out.println("utilise potion");
+					PacmanGame.utilisePotion();
 				}
 				break;
 		}
@@ -79,9 +82,17 @@ public class Hero {
 	public static int getNombrePotion() {
 		return nombrePotion;
 	}
+	
 
 	public static boolean isPotionEnCours() {
 		return potionEnCours;
 	}
 	
+	public static void potionPlusValide() {
+		potionEnCours=false;
+	}
+
+	public static long getTempsLancementPotion() {
+		return tempsLancementPotion;
+	}
 }
