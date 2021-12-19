@@ -25,7 +25,7 @@ public class Hero {
 			case DOWN:
 				computePos(getAbscisse(),getOrdonnee()+1);	// +1 car on veut labyrinthe[indice+1]
 				break;
-			case SPACE:
+			case SPACE:	// si on appuie sur espace et que le hero a une potion
 				if (nombrePotion!=0) {
 					tempsLancementPotion = System.currentTimeMillis();
 					potionEnCours=true;

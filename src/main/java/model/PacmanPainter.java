@@ -166,7 +166,7 @@ public class PacmanPainter implements GamePainter {
 				crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
 			else {
-				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours à ce moment la, pour l'instant j'ai remis le point rose
+				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours a ce moment la, pour l'instant j'ai remis le point rose
 				crayon.setColor(Color.pink);
 				crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
 			}

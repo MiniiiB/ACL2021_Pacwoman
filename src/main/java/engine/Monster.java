@@ -10,7 +10,7 @@ public class Monster {
 	public static int abscisse=18;
 	public static int ordonnee=1;
 	private static Cmd commandeMonster;
-	private static boolean monstreEnVie=true;
+	private static boolean monstreEnVie=true; // true si le monstre est en vie
 
 
 	public static void aleatoire() {
