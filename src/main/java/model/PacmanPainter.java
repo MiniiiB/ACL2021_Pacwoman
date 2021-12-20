@@ -234,7 +234,11 @@ public class PacmanPainter implements GamePainter {
 		return labyrinthe;
 	}
 	
-	public static void retireObjet(int abscisse, int ordonnee) { // retire la cle du plateau quand elle est recuperee par le heros
+	public static void retireObjet(int abscisse, int ordonnee) { // retire la cle/potion du plateau quand elle est recuperee par le heros
 		labyrinthe[abscisse][ordonnee]="0";
 	}
-}
+	
+	public static void ajoutArrivee(int abscisse, int ordonnee) {
+		labyrinthe[abscisse][ordonnee]="3";
+	}
+ }

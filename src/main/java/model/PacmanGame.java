@@ -78,6 +78,7 @@ public class PacmanGame implements Game {
 			System.out.println("Vous avez une cle");
 			PacmanPainter.retireObjet(abscisse,ordonnee);
 			//System.out.println(Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee]));
+			PacmanPainter.ajoutArrivee(18,18);
 		}
 		
 	}
