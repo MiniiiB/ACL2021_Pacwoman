@@ -7,11 +7,11 @@ import model.PacmanGame;
 import engine.Monster;
 public class Main 
 {
+	//On crée les monstres ici
 	public static Monster monstre= new Monster(3,17);
 	public static Monster monstre2= new Monster(18,1);
 	
 	public static void main(String[] args) throws InterruptedException {
-		System.out.println("monstre 1  abscisse " + monstre.abscisse+ "    ordonnee      "+monstre.ordonnee);
 		
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("helpFilePacman.txt");

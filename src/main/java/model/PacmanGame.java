@@ -51,16 +51,16 @@ public class PacmanGame implements Game {
 			Main.monstre.move(Main.monstre.getCommandeMonster());
 			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre.abscisse, Main.monstre.ordonnee);
 			getTime();
-			System.out.println("monstre 1  abscisse " + Main.monstre.abscisse+ "    ordonnee      "+Main.monstre.ordonnee);
 			
 		}	
+		//On ajoute le mouvement du second monstre lorsqu'il est en vie
 		if (Main.monstre2.isMonstreEnVie()) {
 			Main.monstre2.aleatoire();
 			//System.out.println(Monster.getCommandeMonster());
 			Main.monstre2.move(Main.monstre2.getCommandeMonster());
 			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre2.abscisse, Main.monstre2.ordonnee);
 			getTime();
-			System.out.println("monstre 2 abscisse    " + Main.monstre2.abscisse+"   ordonneee "+ Main.monstre2.ordonnee);
+			
 		}	
 	}
 	
