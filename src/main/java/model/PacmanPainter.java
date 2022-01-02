@@ -103,7 +103,7 @@ public class PacmanPainter implements GamePainter {
 			int n_fin = 4;
 			crayon.fillPolygon(x_fin,y_fin,n_fin);
 			crayon.setColor(Color.WHITE);
-			crayon.drawString("Partie perdue: le temps est écoulé",50,200);
+			crayon.drawString("Partie perdue: le temps est ecoule",50,200);
 		}
 		else if (PacmanGame.finJeuVictoire == true) {
 			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -113,7 +113,7 @@ public class PacmanPainter implements GamePainter {
 			int n_fin = 4;
 			crayon.fillPolygon(x_fin,y_fin,n_fin);
 			crayon.setColor(Color.WHITE);
-			crayon.drawString("Vous avez gagné",50,200);
+			crayon.drawString("Vous avez gagne",50,200);
 		}
 		else {
 			try {

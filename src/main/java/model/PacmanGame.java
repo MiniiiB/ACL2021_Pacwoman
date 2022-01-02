@@ -32,7 +32,7 @@ public class PacmanGame implements Game {
 			System.out.println("Help not available");
 		}
 	}
-	//Boolean signifiant la fin du jeu dans les différents cas possible
+	//Boolean signifiant la fin du jeu dans les differents cas possible
 	static boolean finJeuTemps = false;
 	static boolean finJeuVie = false;
 	static boolean finJeuVictoire = false;
