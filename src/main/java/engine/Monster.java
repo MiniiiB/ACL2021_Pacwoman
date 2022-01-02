@@ -10,7 +10,7 @@ public class Monster {
 	public int abscisse;
 	public int ordonnee;
 	private static Cmd commandeMonster;
-	private static boolean monstreEnVie=true; // true si le monstre est en vie
+	private boolean monstreEnVie=true; // true si le monstre est en vie
 	
 	// Afin d'avoir des coordonnées différentes pour les monstres on ajoute un constructeur 
 	public Monster(int abs, int ord) {
@@ -78,11 +78,11 @@ public class Monster {
 		return commandeMonster;
 	}
 
-	public static boolean isMonstreEnVie() {
+	public boolean isMonstreEnVie() {
 		return monstreEnVie;
 	}
 	
-	public static void tueMonstre() {
+	public void tueMonstre() {
 		monstreEnVie=false;
 	}
 }

@@ -193,9 +193,10 @@ public class PacmanPainter implements GamePainter {
 				crayon.drawImage(player,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
 			else {
-				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours a ce moment la, pour l'instant j'ai remis le point rose
 				crayon.drawImage(playerPotion,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
+			System.out.println("Monstre 1 en vie:"+Main.monstre.isMonstreEnVie());
+			System.out.println("Monstre 2 en vie:"+Main.monstre2.isMonstreEnVie());
 			if(Main.monstre.isMonstreEnVie()) {
 				crayon.drawImage(monster,(400*Main.monstre.getAbscisse())/20, (400*Main.monstre.getOrdonnee())/20, null);
 			}
@@ -225,9 +226,6 @@ public class PacmanPainter implements GamePainter {
 			crayon.fillPolygon(x_chrono,y_chrono,n_chrono);
 			crayon.setColor(Color.WHITE);
 			crayon.drawString(PacmanGame.gettime(),345,10);
-			
-			
-			
 		}
 	}
 	

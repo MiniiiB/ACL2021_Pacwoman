@@ -49,7 +49,7 @@ public class PacmanGame implements Game {
 			Main.monstre.aleatoire();
 			//System.out.println(Monster.getCommandeMonster());
 			Main.monstre.move(Main.monstre.getCommandeMonster());
-			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre.abscisse, Main.monstre.ordonnee);
+			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre.abscisse, Main.monstre.ordonnee,Main.monstre);
 			getTime();
 			
 		}	
@@ -58,7 +58,7 @@ public class PacmanGame implements Game {
 			Main.monstre2.aleatoire();
 			//System.out.println(Monster.getCommandeMonster());
 			Main.monstre2.move(Main.monstre2.getCommandeMonster());
-			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre2.abscisse, Main.monstre2.ordonnee);
+			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre2.abscisse, Main.monstre2.ordonnee,Main.monstre2);
 			getTime();
 			
 		}	
@@ -141,11 +141,11 @@ public class PacmanGame implements Game {
 		}
 	}
 	
-	public static void verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
+	public static void verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster,Monster monstre) {
 		// Ce programme permet de verifier si le heros est sur la meme case que le monstre, si oui il renvoie True
 		if (abscisseHeros==abscisseMonster && ordonneeHeros==ordonneeMonster){
 			if(Hero.isPotionEnCours()) {
-				Monster.tueMonstre();
+				monstre.tueMonstre();
 			}
 			else {
 				Hero.retireVie();
@@ -165,11 +165,10 @@ public class PacmanGame implements Game {
 	public static void utilisePotion() {
 		if(Hero.isPotionEnCours()) {
 			long tempsEcoulePotion = System.currentTimeMillis() - Hero.getTempsLancementPotion();
-			System.out.println(tempsEcoulePotion);
 			long tempsPotion= 5000; // 5 secondes
 			if(tempsEcoulePotion<tempsPotion) {
-				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre.getAbscisse(),Main.monstre.getOrdonnee());
-				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre2.getAbscisse(),Main.monstre2.getOrdonnee());
+				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre.getAbscisse(),Main.monstre.getOrdonnee(),Main.monstre);
+				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre2.getAbscisse(),Main.monstre2.getOrdonnee(),Main.monstre2);
 				
 			}
 			else {
