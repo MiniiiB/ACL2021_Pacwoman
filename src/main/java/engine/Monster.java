@@ -5,13 +5,16 @@ import java.io.BufferedReader;
 import model.PacmanGame;
 
 import java.awt.event.KeyEvent;
-
+import start.Main;
 public class Monster {
-	public static int abscisse=18;
-	public static int ordonnee=1;
+	public int abscisse;
+	public int ordonnee;
 	private static Cmd commandeMonster;
 	private static boolean monstreEnVie=true; // true si le monstre est en vie
-
+	public Monster(int abs, int ord) {
+		this.abscisse=abs;
+		this.ordonnee=ord;
+	}
 
 	public static void aleatoire() {
 		int commandealeatoire=1+(int)(Math.random() * 4);
@@ -31,7 +34,7 @@ public class Monster {
 		}
 	}
 	
-	public static void move(Cmd commande) {
+	public void move(Cmd commande) {
 		//System.out.println(commande);
 		switch (commande) {
 			case LEFT:
@@ -49,24 +52,24 @@ public class Monster {
 			}
 	}
 	
-	public static void changePos(int x,int y) {
-		abscisse=x;
-		ordonnee=y;
+	public void changePos(int x,int y) {
+		this.abscisse=x;
+		this.ordonnee=y;
 		//System.out.println("position x :"+x+"; position y :"+y);
 	}
 		
-	public static void computePos(int x,int y) {
+	public void computePos(int x,int y) {
 		if(PacmanGame.check(x,y)) {
 			changePos(x,y);   //que ca dans monster
 		}
 	}
 
-	public static int getAbscisse() {
-		return abscisse;
+	public  int getAbscisse() {
+		return this.abscisse;
 	}
 	
-	public static int getOrdonnee() {
-		return ordonnee;
+	public int getOrdonnee() {
+		return this.ordonnee;
 	}
 
 	public static Cmd getCommandeMonster() {

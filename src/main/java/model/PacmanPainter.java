@@ -1,5 +1,5 @@
 package model;
-
+import start.Main;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -196,8 +196,11 @@ public class PacmanPainter implements GamePainter {
 				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours a ce moment la, pour l'instant j'ai remis le point rose
 				crayon.drawImage(playerPotion,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
-			if(Monster.isMonstreEnVie()) {
-				crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
+			if(Main.monstre.isMonstreEnVie()) {
+				crayon.drawImage(monster,(400*Main.monstre.getAbscisse())/20, (400*Main.monstre.getOrdonnee())/20, null);
+			}
+			if(Main.monstre2.isMonstreEnVie()) {
+				crayon.drawImage(monster,(400*Main.monstre2.getAbscisse())/20, (400*Main.monstre2.getOrdonnee())/20, null);
 			}
 			//crayon.setColor(Color.pink);
 			//crayon.fillOval((800*Hero.getAbscisse())/20,(800*Hero.getOrdonnee())/20,800/20,800/20);

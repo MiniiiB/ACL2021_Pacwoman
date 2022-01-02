@@ -9,7 +9,7 @@ import engine.Game;
 import engine.Hero;
 import engine.Monster;
 
-
+import start.Main;
 //Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
 public class PacmanGame implements Game {
 	private static int NombreCle=0;
@@ -45,12 +45,22 @@ public class PacmanGame implements Game {
 		verifEnVie();
 		utilisePotion();
 		Hero.move(commande);
-		if (Monster.isMonstreEnVie()) {
-			Monster.aleatoire();
+		if (Main.monstre.isMonstreEnVie()) {
+			Main.monstre.aleatoire();
 			//System.out.println(Monster.getCommandeMonster());
-			Monster.move(Monster.getCommandeMonster());
-			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Monster.abscisse, Monster.ordonnee);
+			Main.monstre.move(Main.monstre.getCommandeMonster());
+			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre.abscisse, Main.monstre.ordonnee);
 			getTime();
+			System.out.println("monstre 1  abscisse " + Main.monstre.abscisse+ "    ordonnee      "+Main.monstre.ordonnee);
+			
+		}	
+		if (Main.monstre2.isMonstreEnVie()) {
+			Main.monstre2.aleatoire();
+			//System.out.println(Monster.getCommandeMonster());
+			Main.monstre2.move(Main.monstre2.getCommandeMonster());
+			PacmanGame.verifMonster(Hero.getAbscisse(), Hero.getOrdonnee(), Main.monstre2.abscisse, Main.monstre2.ordonnee);
+			getTime();
+			System.out.println("monstre 2 abscisse    " + Main.monstre2.abscisse+"   ordonneee "+ Main.monstre2.ordonnee);
 		}	
 	}
 	
@@ -158,7 +168,9 @@ public class PacmanGame implements Game {
 			System.out.println(tempsEcoulePotion);
 			long tempsPotion= 5000; // 5 secondes
 			if(tempsEcoulePotion<tempsPotion) {
-				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Monster.getAbscisse(),Monster.getOrdonnee());
+				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre.getAbscisse(),Main.monstre.getOrdonnee());
+				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Main.monstre2.getAbscisse(),Main.monstre2.getOrdonnee());
+				
 			}
 			else {
 				Hero.potionPlusValide();
