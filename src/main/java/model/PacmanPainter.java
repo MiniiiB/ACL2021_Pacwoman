@@ -44,6 +44,7 @@ public class PacmanPainter implements GamePainter {
 		Image life;
 		Image monster;
 		Image caseSpe;
+		Image potion;
 		BufferedReader helpReader;
 		Path cheminKey = Paths.get("src/assets/keyYellow.png");
 		Path absoluKey = cheminKey.toAbsolutePath();
@@ -63,6 +64,8 @@ public class PacmanPainter implements GamePainter {
 		Path absoluMonster = cheminMonster.toAbsolutePath();
 		Path cheminCaseSpe = Paths.get("src/assets/lock_yellow.png");
 		Path absoluCaseSpe = cheminCaseSpe.toAbsolutePath();
+		Path cheminPotion = Paths.get("src/assets/potion.png");
+		Path absoluPotion = cheminPotion.toAbsolutePath();
 		//System.out.println("chemin absolu : " + absoluKey.toString());
 		key = new ImageIcon(absoluKey.toString()).getImage();
 		player = new ImageIcon(absoluPlayer.toString()).getImage();
@@ -73,19 +76,40 @@ public class PacmanPainter implements GamePainter {
 		life = new ImageIcon(absoluLife.toString()).getImage();
 		monster = new ImageIcon(absoluMonster.toString()).getImage();
 		caseSpe = new ImageIcon(absoluCaseSpe.toString()).getImage();
+		potion = new ImageIcon(absoluPotion.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 
 		
 
-		if (PacmanGame.finJeu == true) {
-			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		if (PacmanGame.finJeuVie == true) {
+			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 			crayon.setColor(Color.BLACK);
 			int x_fin[] = {0,0,400,400};
 			int y_fin[] = {0,400,400,0};
 			int n_fin = 4;
 			crayon.fillPolygon(x_fin,y_fin,n_fin);
 			crayon.setColor(Color.WHITE);
-			crayon.drawString("Fin du jeu",150,240);
+			crayon.drawString("Partie perdue: vous n'avez plus de vie",50,200);
+		}
+		else if (PacmanGame.finJeuTemps == true) {
+			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			crayon.setColor(Color.BLACK);
+			int x_fin[] = {0,0,400,400};
+			int y_fin[] = {0,400,400,0};
+			int n_fin = 4;
+			crayon.fillPolygon(x_fin,y_fin,n_fin);
+			crayon.setColor(Color.WHITE);
+			crayon.drawString("Partie perdue: le temps est écoulé",50,200);
+		}
+		else if (PacmanGame.finJeuVictoire == true) {
+			crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			crayon.setColor(Color.BLACK);
+			int x_fin[] = {0,0,400,400};
+			int y_fin[] = {0,400,400,0};
+			int n_fin = 4;
+			crayon.fillPolygon(x_fin,y_fin,n_fin);
+			crayon.setColor(Color.WHITE);
+			crayon.drawString("Vous avez gagné",50,200);
 		}
 		else {
 			try {
@@ -144,9 +168,8 @@ public class PacmanPainter implements GamePainter {
 								crayon.drawImage(caseSpe, xImage, yImage, null);
 							}
 							if (res == 7){ //Case potion 
-								// thomas : j'ai mis une case noire pour la potion pour l'instant
-								crayon.setColor(Color.BLACK);
-								crayon.fillPolygon(x,y,n);
+								crayon.drawImage(ground, xImage, yImage, null);
+								crayon.drawImage(potion, xImage, yImage, null);
 							}
 							
 							//System.out.println(Arrays.toString(lignes));

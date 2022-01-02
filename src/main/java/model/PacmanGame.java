@@ -32,8 +32,10 @@ public class PacmanGame implements Game {
 			System.out.println("Help not available");
 		}
 	}
-	//Boolean signifiant la fin du jeu
-	static boolean finJeu = false;
+	//Boolean signifiant la fin du jeu dans les différents cas possible
+	static boolean finJeuTemps = false;
+	static boolean finJeuVie = false;
+	static boolean finJeuVictoire = false;
 
 	//faire evoluer le jeu suite a une commande @param commande
 	@Override
@@ -86,14 +88,14 @@ public class PacmanGame implements Game {
 	// verifier si le heros a bien au moins une vie, sinon le jeu se finit
 		public static void verifEnVie() {
 			if (Hero.getNombreVie()<=0) {
-				finJeu=true;
+				finJeuVie = true;
 			}
 		}
 	
 	public static void getTime(){
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
 		if (tempsEcoule > TempsMax) {
-			finJeu = true; //On a depasse le temps maximal autorise donc on a perdu
+			finJeuTemps = true; //On a depasse le temps maximal autorise donc on a perdu
 			System.out.print("Partie perdue: temps depasse");
 		}
 	}
@@ -108,7 +110,7 @@ public class PacmanGame implements Game {
 	public static void verifArrivee (int abscisse, int ordonnee) {
 		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
 			System.out.println("Le jeu est gagne!");
-			finJeu = true;
+			finJeuVictoire = true;
 		}
 	}
 	
@@ -154,7 +156,7 @@ public class PacmanGame implements Game {
 		if(Hero.isPotionEnCours()) {
 			long tempsEcoulePotion = System.currentTimeMillis() - Hero.getTempsLancementPotion();
 			System.out.println(tempsEcoulePotion);
-			long tempsPotion= 5000; // 5 secondes
+			long tempsPotion= 10000; // 5 secondes
 			if(tempsEcoulePotion<tempsPotion) {
 				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Monster.getAbscisse(),Monster.getOrdonnee());
 			}
@@ -166,7 +168,13 @@ public class PacmanGame implements Game {
 
 	@Override
 	public boolean finJeu() {
-		if (finJeu) {
+		if (finJeuVictoire) {
+			return true;
+		}
+		if (finJeuTemps) {
+			return true;
+		}
+		if (finJeuVie) {
 			return true;
 		}
 		return false;
