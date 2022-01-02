@@ -156,7 +156,7 @@ public class PacmanGame implements Game {
 		if(Hero.isPotionEnCours()) {
 			long tempsEcoulePotion = System.currentTimeMillis() - Hero.getTempsLancementPotion();
 			System.out.println(tempsEcoulePotion);
-			long tempsPotion= 10000; // 5 secondes
+			long tempsPotion= 5000; // 5 secondes
 			if(tempsEcoulePotion<tempsPotion) {
 				verifMonster(Hero.getAbscisse(),Hero.getOrdonnee(),Monster.getAbscisse(),Monster.getOrdonnee());
 			}

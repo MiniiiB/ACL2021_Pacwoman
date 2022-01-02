@@ -45,6 +45,7 @@ public class PacmanPainter implements GamePainter {
 		Image monster;
 		Image caseSpe;
 		Image potion;
+		Image playerPotion;
 		BufferedReader helpReader;
 		Path cheminKey = Paths.get("src/assets/keyYellow.png");
 		Path absoluKey = cheminKey.toAbsolutePath();
@@ -66,6 +67,8 @@ public class PacmanPainter implements GamePainter {
 		Path absoluCaseSpe = cheminCaseSpe.toAbsolutePath();
 		Path cheminPotion = Paths.get("src/assets/potion.png");
 		Path absoluPotion = cheminPotion.toAbsolutePath();
+		Path cheminPlayerPotion = Paths.get("src/assets/p2_front.png");
+		Path absoluPlayerPotion = cheminPlayerPotion.toAbsolutePath();
 		//System.out.println("chemin absolu : " + absoluKey.toString());
 		key = new ImageIcon(absoluKey.toString()).getImage();
 		player = new ImageIcon(absoluPlayer.toString()).getImage();
@@ -77,6 +80,7 @@ public class PacmanPainter implements GamePainter {
 		monster = new ImageIcon(absoluMonster.toString()).getImage();
 		caseSpe = new ImageIcon(absoluCaseSpe.toString()).getImage();
 		potion = new ImageIcon(absoluPotion.toString()).getImage();
+		playerPotion = new ImageIcon(absoluPlayerPotion.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 
 		
@@ -190,8 +194,7 @@ public class PacmanPainter implements GamePainter {
 			}
 			else {
 				// thomas : il me faut une image d'un monstre different pour montrer que la potion est en cours a ce moment la, pour l'instant j'ai remis le point rose
-				crayon.setColor(Color.pink);
-				crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
+				crayon.drawImage(playerPotion,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
 			if(Monster.isMonstreEnVie()) {
 				crayon.drawImage(monster,(400*Monster.getAbscisse())/20, (400*Monster.getOrdonnee())/20, null);
