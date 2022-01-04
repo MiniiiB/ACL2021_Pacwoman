@@ -12,7 +12,7 @@ public class Monster {
 	private static Cmd commandeMonster;
 	private boolean monstreEnVie=true; // true si le monstre est en vie
 	
-	// Afin d'avoir des coordonnées différentes pour les monstres on ajoute un constructeur 
+	// Afin d'avoir des coordonnees differentes pour les monstres on ajoute un constructeur 
 	public Monster(int abs, int ord) {
 		this.abscisse=abs;
 		this.ordonnee=ord;
