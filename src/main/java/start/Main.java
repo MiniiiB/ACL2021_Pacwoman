@@ -20,6 +20,7 @@ public class Main
 		painter.creationLabyrinthe();
 		PacmanController controller = new PacmanController();
 
+//		ksdfjfsdlkjshg
 		// classe qui lance le moteur de jeu generique
 		GameEngineGraphical engine = new GameEngineGraphical(game, painter, controller);
 		engine.run();
