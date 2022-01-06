@@ -19,7 +19,7 @@ public class Monster {
 	}
 
 	public static void aleatoire() {
-		int commandealeatoire=1+(int)(Math.random() * 4);
+		int commandealeatoire=1+(int)(Math.random() * 5);
 		//System.out.println(commandealeatoire);
 		//aleat renvoie un nombre aleatoire entre 0 et 3, qui correspondra a  la position dans la liste
 		if (commandealeatoire==1) {
@@ -33,6 +33,9 @@ public class Monster {
 		}
 		if (commandealeatoire==4) {
 			commandeMonster=Cmd.DOWN;
+		}
+		if (commandealeatoire==5) {
+			commandeMonster=Cmd.IDLE;
 		}
 	}
 	
