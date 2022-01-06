@@ -93,7 +93,7 @@ public class PacmanPainter implements GamePainter {
 
 		
 
-		if (PacmanGame.finJeuVie == true) {
+		if (PacmanGame.finJeuVie) {
 			/*crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 			crayon.setColor(Color.BLACK);
 			int x_fin[] = {0,0,400,400};
@@ -106,7 +106,7 @@ public class PacmanPainter implements GamePainter {
 			int yImage = 0;
 			crayon.drawImage(gameOver, xImage, yImage, null);
 		}
-		else if (PacmanGame.finJeuTemps == true) {
+		else if (PacmanGame.finJeuTemps) {
 			/*crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 			crayon.setColor(Color.BLACK);
 			int x_fin[] = {0,0,400,400};
@@ -119,7 +119,7 @@ public class PacmanPainter implements GamePainter {
 			int yImage = 0;
 			crayon.drawImage(gameOver, xImage, yImage, null);
 		}
-		else if (PacmanGame.finJeuVictoire == true) {
+		else if (PacmanGame.finJeuVictoire) {
 			/*crayon.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 			crayon.setColor(Color.BLACK);
 			int x_fin[] = {0,0,400,400};
