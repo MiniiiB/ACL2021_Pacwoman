@@ -20,7 +20,7 @@ import engine.Hero;
 import engine.Monster;
 import java.nio.file.*;
 
-//afficheur graphique pour le game
+//afficheur graphique pour le Game
 
 public class PacmanPainter implements GamePainter {
 	//la taille de la fenetre
