@@ -31,7 +31,7 @@ public class PacmanPainter implements GamePainter {
 	//appelle constructeur parent @param game le jeutest a afficher
 	public PacmanPainter() {
 	}
-
+	//TEST MODIFICATION ELOISE
 	//methode  redefinie de Afficheur retourne une image du jeu
 	@Override	// override = fonction qui est deja dans la classe mere
 	public void draw(BufferedImage im) { 
