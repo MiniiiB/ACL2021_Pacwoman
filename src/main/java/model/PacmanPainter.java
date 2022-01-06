@@ -195,8 +195,6 @@ public class PacmanPainter implements GamePainter {
 			else {
 				crayon.drawImage(playerPotion,(400*Hero.getAbscisse())/20, (400*Hero.getOrdonnee())/20, null);
 			}
-			System.out.println("Monstre 1 en vie:"+Main.monstre.isMonstreEnVie());
-			System.out.println("Monstre 2 en vie:"+Main.monstre2.isMonstreEnVie());
 			if(Main.monstre.isMonstreEnVie()) {
 				crayon.drawImage(monster,(400*Main.monstre.getAbscisse())/20, (400*Main.monstre.getOrdonnee())/20, null);
 			}
