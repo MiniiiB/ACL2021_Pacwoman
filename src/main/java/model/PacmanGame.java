@@ -112,7 +112,7 @@ public class PacmanGame implements Game {
 
 	public static String gettime(){
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
-		long tps = tempsEcoule / 1000;
+		long tps = 30 - tempsEcoule / 1000;
 		String s = String.valueOf(tps);
 		return s;
 	}
