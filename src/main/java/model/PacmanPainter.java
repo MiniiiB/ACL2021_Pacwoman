@@ -128,6 +128,7 @@ public class PacmanPainter implements GamePainter {
 			crayon.fillPolygon(x_fin,y_fin,n_fin);
 			crayon.setColor(Color.WHITE);
 			crayon.drawString("Vous avez gagne",50,200);*/
+			//Image
 			int xImage = 0;
 			int yImage = 0;
 			crayon.drawImage(win, xImage, yImage, null);
