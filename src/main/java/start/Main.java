@@ -7,7 +7,7 @@ import model.PacmanGame;
 import engine.Monster;
 public class Main 
 {
-	//On crée les monstres ici
+	//On cree les monstres ici
 	public static Monster monstre= new Monster(3,17);
 	public static Monster monstre2= new Monster(18,1);
 	
