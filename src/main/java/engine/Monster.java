@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import model.PacmanGame;
 
 import java.awt.event.KeyEvent;
-import start.Main;
+//import start.Main;
 public class Monster {
 	public int abscisse;
 	public int ordonnee;
