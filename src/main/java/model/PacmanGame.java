@@ -177,6 +177,14 @@ public class PacmanGame implements Game {
 		}	
 	}
 
+
+	public static void verifTP(int x, int y) { // parametre : abscisse et ordonnee du heros
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[x][y])==8) {
+			Hero.abscisse = 3;
+			Hero.ordonnee = 14;
+		}
+	}
+
 	@Override
 	public boolean finJeu() {
 		if (finJeuVictoire) {

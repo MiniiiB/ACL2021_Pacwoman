@@ -1,10 +1,8 @@
 package model;
 import start.Main;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 
@@ -17,7 +15,6 @@ import java.awt.Image;
 
 import engine.GamePainter;
 import engine.Hero;
-import engine.Monster;
 import java.nio.file.*;
 
 //afficheur graphique pour le game
@@ -48,6 +45,7 @@ public class PacmanPainter implements GamePainter {
 		Image playerPotion;
 		Image gameOver;
 		Image win;
+		Image tp;
 		BufferedReader helpReader;
 		Path cheminKey = Paths.get("src/assets/keyYellow.png");
 		Path absoluKey = cheminKey.toAbsolutePath();
@@ -75,6 +73,8 @@ public class PacmanPainter implements GamePainter {
 		Path absoluGameOver = cheminGameOver.toAbsolutePath();
 		Path cheminWin = Paths.get("src/assets/win.png");
 		Path absoluWin = cheminWin.toAbsolutePath();
+		Path cheminTP = Paths.get("src/assets/tp.png");
+		Path absoluTP = cheminTP.toAbsolutePath();
 		//System.out.println("chemin absolu : " + absoluKey.toString());
 		key = new ImageIcon(absoluKey.toString()).getImage();
 		player = new ImageIcon(absoluPlayer.toString()).getImage();
@@ -89,6 +89,7 @@ public class PacmanPainter implements GamePainter {
 		playerPotion = new ImageIcon(absoluPlayerPotion.toString()).getImage();
 		gameOver = new ImageIcon(absoluGameOver.toString()).getImage();
 		win = new ImageIcon(absoluWin.toString()).getImage();
+		tp = new ImageIcon(absoluTP.toString()).getImage();
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 
 		
@@ -145,11 +146,11 @@ public class PacmanPainter implements GamePainter {
 					//getLabyrinthe()[compteurLignes]=lignes;
 						//On utilise des cases de 20px par 20 px
 						for (int symboles = 0; symboles < lignes.length; symboles ++){
-							int x[] = {compteurLignes*20,compteurLignes*20,compteurLignes*20+20,compteurLignes*20+20};
-							int y[] = {symboles*20,symboles*20+20,symboles*20+20,symboles*20};
+							//int x[] = {compteurLignes*20,compteurLignes*20,compteurLignes*20+20,compteurLignes*20+20};
+							//int y[] = {symboles*20,symboles*20+20,symboles*20+20,symboles*20};
 							int xImage = compteurLignes*20;
 							int yImage = symboles*20;
-							int n = 4;
+							//int n = 4;
 							int res = Integer.parseInt(labyrinthe[compteurLignes][symboles]);
 							if (res == 0){ //Case libre
 								crayon.drawImage(ground, xImage, yImage, null);
@@ -192,6 +193,9 @@ public class PacmanPainter implements GamePainter {
 							if (res == 7){ //Case potion 
 								crayon.drawImage(ground, xImage, yImage, null);
 								crayon.drawImage(potion, xImage, yImage, null);
+							}
+							if (res == 8 || res == 9){ //Case TP 
+								crayon.drawImage(tp, xImage, yImage, null);
 							}
 							
 							//System.out.println(Arrays.toString(lignes));

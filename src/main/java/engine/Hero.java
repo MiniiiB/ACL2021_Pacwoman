@@ -1,14 +1,13 @@
 package engine;
 
 import model.PacmanGame;
-import model.PacmanPainter;
 
 public class Hero {
-	private static int abscisse=1;
-	private static int ordonnee=1;
+	public static int abscisse=1;
+	public static int ordonnee=1;
 	private static int nombreVie = 3;
 	private static int nombrePotion = 0;
-	private static boolean potionEnCours=false; // vrai lorsque la potion est en train d'être utilisee
+	private static boolean potionEnCours=false; // vrai lorsque la potion est en train d'ï¿½tre utilisee
 	private static long tempsLancementPotion;
 
 	public static void move(Cmd commande) {
@@ -46,6 +45,7 @@ public class Hero {
 			PacmanGame.verifPotion(x,y); // on verifie si on est sur la case potion
 			PacmanGame.verifVie(x, y); // on verifie si on est sur une case avec un point de vie 
 			PacmanGame.getTime(); //On verifie si le temps n'est pas depasse 
+			PacmanGame.verifTP(x, y); //On verifie si le temps n'est pas depasse 
 		}
 	}
 	
@@ -82,7 +82,6 @@ public class Hero {
 	public static int getNombrePotion() {
 		return nombrePotion;
 	}
-	
 
 	public static boolean isPotionEnCours() {
 		return potionEnCours;
